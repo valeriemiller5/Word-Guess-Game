@@ -63,13 +63,11 @@ function newRound() {
     document.getElementById("answersGuessed").innerHTML = wrongLetters;
     document.getElementById("secretAnswer").innerHTML = output.join(" ");
 
-    if(letters.toString() == output.toString() + 1) {
-        alert("YOU WIN!!!");
+    if(letters.toString() == output.toString()) {
         wins++;
         document.getElementById("game").innerHTML = wins;
         startGame();
     } else if(remainingGuesses === 0) {
-        alert("Not a fan of the show, huh?");
         losses++;
         document.getElementById("losses").innerHTML = losses;
         startGame();
