@@ -1,0 +1,24 @@
+body {
+    height: 1200px;
+    background-color: #cccccc;
+    background-image: linear-gradient(black, darkred);
+}
+
+#left {
+    padding-left: 25%;
+}
+
+.newFont {
+    margin-top: 30px;
+    font-family: 'Rock Salt', cursive;
+    color: white;
+}
+
+section {
+    width: 85%;
+    margin-left: 90px;
+}
+
+.text {
+    color: whitesmoke;
+}

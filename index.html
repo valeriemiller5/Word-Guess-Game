@@ -4,25 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Guessing Game</title>
 </head>
 <body>
-    <h1>Aggretsuko: Guess the Name!!</h1>
-    <h2>Press any key to get started!</h2>
-    <br><br>
-    <div id="secretAnswer"></div>
+    <header class="mx-auto" style="width: 400px;">
+        <div class="newFont">
+            <img src="assets/images/title.png" alt="mainTitle">
+            <h1>Guess the Name!!</h1>
+        </div>
+    </header>
+    <div class="mx-auto" style="width: 300px">
+        <h3 class="text">Press any key to start!</h3>
+    </div>
     <br>
-    <h2>Remaining Guesses</h2>
-    <div id="remainingGuesses"></div>
-    <br>
-    <h2>Letters Guessed</h2>
-    <div id="answersGuessed"></div>
-    <br>
-    <h2>Losses</h2>
-    <div id="losses"></div>
-    <br>
-    <h2>Wins</h2>
-    <div id="game"></div>
+<section class = "text" class="container col-md-12">
+    <div class="row">
+        <div class="col-md-6 bg-dark p-3 rounded">
+            <div id="left" class="mx-auto">
+                <div id="picture"></div>
+            </div>
+            <div id="clip" width="100%" height="100%"></div>
+        </div>
+        <div class="col-md-5 bg-dark p-3 ml-1 rounded">
+            <div class="newFont">
+                <h5>Who is this character?</h5>
+                <div id="secretAnswer"></div>
+                <br>
+                <h5>Remaining Guesses:</h5>
+                <div id="remainingGuesses"></div>
+                <br>
+                <h5>Letters Guessed:</h5>
+                <div id="wrongLetters"></div>
+                <br>
+                <h5>Losses:</h5>
+                <div id="losses"></div>
+                <br>
+                <h5>Wins:</h5>
+                <div id="game"></div>
+            </div>
+        </div>
+    </div>
+</section>
+    
 
 <script src="assets/javascript/game.js" type="text/javascript"></script>
 </body>

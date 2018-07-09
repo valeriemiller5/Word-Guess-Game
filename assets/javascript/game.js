@@ -10,39 +10,47 @@ var losses = 0;
 var wins = 0;
 
 function startGame() {
-    word = charName[Math.floor(Math.random() * charName.length)];
-    letters = word.split("");
-    num = letters.length;
-
-    console.log(num);
-    console.log(letters);
+    // creates a random selection of one of the elements in array charName and stores in variable word
+    word = charName[Math.floor(Math.random() * charName.length) + 1];
     console.log(word);
+    // splits the letters of the randomly selected element in word into individual letters
+    letters = word.split("");
+    console.log(letters);
+    // stores the number of letters from variable letters from the random word in to the variable number
+    num = letters.length;
+    console.log(num);
 
+    // sets the default values of the remaining guesses, wrong guesses, and variable output that stores the random
+    // word as underscores each time the game starts
     remainingGuesses = 15;
     wrongLetters = [];
     output = [];
 
+    // stores the letters from variable num into empty array output as underscores
     for(var i = 0; i < num; i++) {
         output.push("_");
         console.log(output);
     }
 
+    // underscores are put in a string and displayed in html
     document.getElementById("secretAnswer").innerHTML = output.join(" ");
+    // shows wins, losses and remaining guesses in html
     document.getElementById("game").innerHTML = wins;
     document.getElementById("losses").innerHTML = losses;
     document.getElementById("remainingGuesses").innerHTML = remainingGuesses;
 };
 
 function checkAnswer(letter) {
+    // assumes that the initial value of the variable is false
     var letterInWord = false;
-
+    // loop showing if the variable letterInWord matches a letter in the random word, the value changes to true
     for(var j = 0; j < num; j++) {
 
         if(letter == word[j]) {
             letterInWord = true;
         }
     }
-
+    // if LetterInWord is true, replaces underscore with guessed letter
     if(letterInWord) {
         for(var j = 0; j < num; j++) {
             if(word[j] == letter) {
@@ -50,33 +58,111 @@ function checkAnswer(letter) {
                 console.log(output)
             }
         }
+    // if LetterInWord remains false, stores wrong guess in empty array wrongLetters and
+    // decreases remaining guesses by one    
+    } else if (wrongLetters.includes(letter)){ 
+        alert("You have already made this guess")
     } else {
         wrongLetters.push(letter);
         remainingGuesses--;
-    }
+    } 
 };
 
+// calls function to start the game
 startGame();
 
+// stores values of wins and losses, shows win or lose images upon completion of word or guesses run out
 function newRound() {
     document.getElementById("remainingGuesses").innerHTML = remainingGuesses;
-    document.getElementById("answersGuessed").innerHTML = wrongLetters;
+    document.getElementById("wrongLetters").innerHTML = wrongLetters;
     document.getElementById("secretAnswer").innerHTML = output.join(" ");
 
+    // converts pushed array in empty global variables letters and output to strings, then checks
+    // to make sure the values area comparable; if the are a point is added to wins
     if(letters.toString() == output.toString()) {
         wins++;
         document.getElementById("game").innerHTML = wins;
-        startGame();
+        // calls function image to display, gameStart is called again within the function image
+        image();
     } else if(remainingGuesses === 0) {
         losses++;
         document.getElementById("losses").innerHTML = losses;
-        startGame();
+        // calls function losingImage to display, gameStart is called again within function losingImage
+        losingImage();
     }
 };
 
-document.onkeypress = function(event) {
+// sets the game to begin as soon as a keyboard key is pressed and released 
+document.onkeyup = function(event) {
+    // user guess is a keyboard key (found the String.fromCharCode online, still not quite sure 
+    // what it does, but game doesn't work without it), and keys pressed will be converted to lower case
     var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
     console.log(userGuess);
+    // function checkAnswer called to check if the userGuess is true or false
     checkAnswer(userGuess);
+    // calls function newRound to start a new round, records wins and losses, empties wrong guesses,
+    // and resets remaining guesses
     newRound();
+};
+
+function image() {
+  if(word == "retsuko") {
+      var photo = "<img src='assets/images/retsuko.jpg' width='300' height='200' alt='retsuko'>";
+      document.getElementById("pictures").innerHTML = photo;
+      alert("Correct! The characters name is " + word + "!");
+      startGame();
+  } else if(word == "haida") {
+      var photo = "<img src='assets/images/haida.jpg' width='300' height='300' alt='haida'>";
+      document.getElementById("picture").innerHTML = photo;
+      alert("Correct! The characters name is " + word + "!");
+      startGame();
+  } else if(word == "fenneko") {
+      var photo = "<img src='assets/images/fenneko.jpg' width='300' height='300' alt='fenneko'>";
+      document.getElementById("picture").innerHTML = photo;
+      alert("Correct! The characters name is " + word + "!");
+      startGame();
+  } else if(word == "gori") {
+      var photo = "<img src='assets/images/gori.jpg' width='300' height='300' alt='gori'>";
+      document.getElementById("picture").innerHTML = photo;
+      alert("Correct! The characters name is " + word + "!");
+      startGame();
+  } else if(word == "washimi") {
+      var photo = "<img src='assets/images/washimi.jpg' width='300' height='300' alt='washimi'>";
+      document.getElementById("picture").innerHTML = photo;
+      alert("Correct! The characters name is " + word + "!");
+      startGame();
+  } else if(word == "ton") {
+      var photo = "<img src='assets/images/ton.jpg' width='300' height='300' alt='ton'>";
+      document.getElementById("picture").innerHTML = photo;
+      alert("Correct! The characters name is " + word + "!");
+      startGame();
+  } else if(word == "tsunoda") {
+      var photo = "<img src='assets/images/tsunoda.jpg' width='300' height='200' alt='tsunoda'>";
+      document.getElementById("picture").innerHTML = photo;
+      alert("Correct! The characters name is " + word + "!")
+      startGame();
+  } else if(word == "kabae") {
+      var photo = "<img src='assets/images/kabae.jpg' width='300' height='200' alt='kabae'>";
+      document.getElementById("picture").innerHTML = photo;
+      alert("Correct! The characters name is " + word + "!");
+      startGame();
+  } else if(word == "resasuke") {
+      var photo = "<img src='assets/images/resasuke.jpg' width='300' height='300' alt='resasuke'>";
+      document.getElementById("picture").innerHTML = photo;
+      alert("Correct! The characters name is " + word + "!");
+      startGame();
+  } else if(word == "tsubone") {
+      var photo = "<img src='assets/images/tsubone.jpg' width='300' height='300' alt='tsubone'>";
+      document.getElementById("picture").innerHTML = photo;
+      alert("Correct! The characters name is " + word + "!");
+      startGame();
+  }
+};
+
+function losingImage() {
+    if (remainingGuesses === 0) {
+        var video = "<iframe width='560' height='315' src='https://www.youtube.com/embed/hSsSRK4FGD0?autoplay=1' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
+        document.getElementById("clip").innerHTML = video;
+        startGame();
+    }
 };
