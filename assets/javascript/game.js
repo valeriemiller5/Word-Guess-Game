@@ -1,4 +1,4 @@
-var charName = ["retsuko", "haida", "fenneko", "gori", "washimi", "ton", "tsunoda", "kabae", "resasuke", "tsubone"];
+var charName = ["placeholder", "retsuko", "aggretsuko", "haida", "fenneko", "gori", "washimi", "ton", "tsunoda", "kabae", "resasuke", "tsubone"];
 var word = "";
 var letters = [];
 var output = [];
@@ -94,8 +94,7 @@ function newRound() {
 
 // sets the game to begin as soon as a keyboard key is pressed and released 
 document.onkeyup = function(event) {
-    // user guess is a keyboard key (found the String.fromCharCode online, still not quite sure 
-    // what it does, but game doesn't work without it), and keys pressed will be converted to lower case
+    // user guess is a keyboard key and keys pressed will be converted to lower case
     var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
     console.log(userGuess);
     // function checkAnswer called to check if the userGuess is true or false
@@ -106,63 +105,71 @@ document.onkeyup = function(event) {
 };
 
 function image() {
-  if(word == "retsuko") {
-      var photo = "<img src='assets/images/retsuko.jpg' width='300' height='200' alt='retsuko'>";
-      document.getElementById("pictures").innerHTML = photo;
-      alert("Correct! The characters name is " + word + "!");
-      startGame();
+    if(word == "retsuko") {
+        var photo = "<img src='assets/images/retsuko.png' width='560' height='560' alt='haida'>";
+        document.getElementById("picture").innerHTML = photo;
+        alert("Correct! The characters name is " + word.charAt(0).toUpperCase() + word.slice(1) + "!");
+
+  } else if(word == "aggretsuko") {
+      var photo = "<img src='assets/images/aggretsuko.png' width='560' height='560' alt='haida'>";
+      document.getElementById("picture").innerHTML = photo;
+      alert("Correct! The characters name is " + word.charAt(0).toUpperCase() + word.slice(1) + "!");
+    
   } else if(word == "haida") {
-      var photo = "<img src='assets/images/haida.jpg' width='300' height='300' alt='haida'>";
+      var photo = "<img src='assets/images/haida.jpg' width='560' height='560' alt='haida'>";
       document.getElementById("picture").innerHTML = photo;
-      alert("Correct! The characters name is " + word + "!");
-      startGame();
+      alert("Correct! The characters name is " + word.charAt(0).toUpperCase() + word.slice(1) + "!");
+    
   } else if(word == "fenneko") {
-      var photo = "<img src='assets/images/fenneko.jpg' width='300' height='300' alt='fenneko'>";
+      var photo = "<img src='assets/images/fenneko.jpg' width='560' height='560' alt='fenneko'>";
       document.getElementById("picture").innerHTML = photo;
-      alert("Correct! The characters name is " + word + "!");
-      startGame();
+      alert("Correct! The characters name is " + word.charAt(0).toUpperCase() + word.slice(1) + "!");
+      
   } else if(word == "gori") {
-      var photo = "<img src='assets/images/gori.jpg' width='300' height='300' alt='gori'>";
+      var photo = "<img src='assets/images/gori.jpg' width='560' height='560' alt='gori'>";
       document.getElementById("picture").innerHTML = photo;
-      alert("Correct! The characters name is " + word + "!");
-      startGame();
+      alert("Correct! The characters name is " + word.charAt(0).toUpperCase() + word.slice(1) + "!");
+      
   } else if(word == "washimi") {
-      var photo = "<img src='assets/images/washimi.jpg' width='300' height='300' alt='washimi'>";
+      var photo = "<img src='assets/images/washimi.jpg' width='560' height='560' alt='washimi'>";
       document.getElementById("picture").innerHTML = photo;
-      alert("Correct! The characters name is " + word + "!");
-      startGame();
+      alert("Correct! The characters name is " + word.charAt(0).toUpperCase() + word.slice(1) + "!");
+      
   } else if(word == "ton") {
-      var photo = "<img src='assets/images/ton.jpg' width='300' height='300' alt='ton'>";
+      var photo = "<img src='assets/images/ton.jpg' width='560' height='560' alt='ton'>";
       document.getElementById("picture").innerHTML = photo;
-      alert("Correct! The characters name is " + word + "!");
-      startGame();
+      alert("Correct! The characters name is " + word.charAt(0).toUpperCase() + word.slice(1) + "!");
+      
   } else if(word == "tsunoda") {
-      var photo = "<img src='assets/images/tsunoda.jpg' width='300' height='200' alt='tsunoda'>";
+      var photo = "<img src='assets/images/tsunoda.jpg' width='560' height='315' alt='tsunoda'>";
       document.getElementById("picture").innerHTML = photo;
-      alert("Correct! The characters name is " + word + "!")
-      startGame();
+      alert("Correct! The characters name is " + word.charAt(0).toUpperCase() + word.slice(1) + "!")
+      
   } else if(word == "kabae") {
-      var photo = "<img src='assets/images/kabae.jpg' width='300' height='200' alt='kabae'>";
+      var photo = "<img src='assets/images/kabae.jpg' width='560' height='315' alt='kabae'>";
       document.getElementById("picture").innerHTML = photo;
-      alert("Correct! The characters name is " + word + "!");
-      startGame();
+      alert("Correct! The characters name is " + word.charAt(0).toUpperCase() + word.slice(1) + "!");
+      
   } else if(word == "resasuke") {
-      var photo = "<img src='assets/images/resasuke.jpg' width='300' height='300' alt='resasuke'>";
+      var photo = "<img src='assets/images/resasuke.jpg' width='560' height='560' alt='resasuke'>";
       document.getElementById("picture").innerHTML = photo;
-      alert("Correct! The characters name is " + word + "!");
-      startGame();
+      alert("Correct! The characters name is " + word.charAt(0).toUpperCase() + word.slice(1) + "!");
+      
   } else if(word == "tsubone") {
-      var photo = "<img src='assets/images/tsubone.jpg' width='300' height='300' alt='tsubone'>";
+      var photo = "<img src='assets/images/tsubone.jpg' width='560' height='560' alt='tsubone'>";
       document.getElementById("picture").innerHTML = photo;
-      alert("Correct! The characters name is " + word + "!");
-      startGame();
-  }
+      alert("Correct! The characters name is " + word.charAt(0).toUpperCase() + word.slice(1) + "!");
+  } 
+};
+  
+function losingImage() {
+    if(remainingGuesses === 0) {
+      var photo = "<iframe width='560' height='315' src='https://www.youtube.com/embed/hSsSRK4FGD0?autoplay=1' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
+      document.getElementById("picture").innerHTML = photo;
+    } 
 };
 
-function losingImage() {
-    if (remainingGuesses === 0) {
-        var video = "<iframe width='560' height='315' src='https://www.youtube.com/embed/hSsSRK4FGD0?autoplay=1' frameborder='0' allow='autoplay; encrypted-media' allowfullscreen></iframe>";
-        document.getElementById("clip").innerHTML = video;
-        startGame();
-    }
-};
+document.getElementById("resetButton").onclick=function(){
+    document.getElementById("picture").className = "hidden";
+    startGame();
+};        
